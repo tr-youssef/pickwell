@@ -20,7 +20,7 @@ export default function FilterSidebar({ categories, onCategoryChange, onPriceCha
     };
 
     return (
-        <div className="w-full lg:w-64">
+        <div className="w-full">
             <div className="text-2xl font-bold">{t('filter')}</div>
             <div className='border-b border-gray-300 pb-6'>
                 <div className="text-xl font-bold mt-4 mb-2">
