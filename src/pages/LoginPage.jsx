@@ -17,9 +17,15 @@ export default function LoginPage({ onLogin }) {
       return;
     }
     
-    // Regular user login
-    onLogin(false);
-    navigate("/");
+    // Check for demo account credentials
+    if (email === "demo@demo.com" && password === "demo") {
+      onLogin(false); // Regular user access
+      navigate("/");
+      return;
+    }
+    
+    // If credentials don't match, show an error (you can add error handling here)
+    alert("Invalid credentials. Please use demo or admin account.");
   };
 
   return (
@@ -69,6 +75,25 @@ export default function LoginPage({ onLogin }) {
             Login
           </button>
         </form>
+        
+        {/* Demo Accounts Info Box */}
+        <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <h3 className="text-sm font-semibold text-blue-900 mb-3">Test Accounts</h3>
+          <div className="space-y-3 text-xs">
+            <div className="bg-white p-3 rounded border border-blue-100">
+              <p className="font-semibold text-blue-800 mb-1">👤 Demo Account</p>
+              <p className="text-gray-600"><span className="font-medium">Email:</span> demo@demo.com</p>
+              <p className="text-gray-600"><span className="font-medium">Password:</span> demo</p>
+              <p className="text-xs text-gray-500 mt-1 italic">Access to shop and order items</p>
+            </div>
+            <div className="bg-white p-3 rounded border border-blue-100">
+              <p className="font-semibold text-blue-800 mb-1">👨‍💼 Admin Account</p>
+              <p className="text-gray-600"><span className="font-medium">Email:</span> admin@admin.com</p>
+              <p className="text-gray-600"><span className="font-medium">Password:</span> admin</p>
+              <p className="text-xs text-gray-500 mt-1 italic">Access to orders dashboard</p>
+            </div>
+          </div>
+        </div>
         
         <div className="mt-6 text-center text-sm text-gray-600">
           <p>Don't have an account? <a href="/signup" className="text-green-600 hover:underline">Sign up</a></p>
