@@ -314,11 +314,11 @@ export default function OrdersPage() {
     <div className="min-h-screen bg-gray-50">
 
       {/* Filters */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="flex gap-2 mb-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
           <button
             onClick={() => setStatusFilter("all")}
-            className={`px-4 py-2 rounded-lg font-medium transition ${
+            className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition ${
               statusFilter === "all" 
                 ? "bg-green-600 text-white" 
                 : "bg-white text-gray-700 hover:bg-gray-100"
@@ -328,7 +328,7 @@ export default function OrdersPage() {
           </button>
           <button
             onClick={() => setStatusFilter("pending")}
-            className={`px-4 py-2 rounded-lg font-medium transition ${
+            className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition ${
               statusFilter === "pending" 
                 ? "bg-yellow-600 text-white" 
                 : "bg-white text-gray-700 hover:bg-gray-100"
@@ -338,7 +338,7 @@ export default function OrdersPage() {
           </button>
           <button
             onClick={() => setStatusFilter("ready")}
-            className={`px-4 py-2 rounded-lg font-medium transition ${
+            className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition ${
               statusFilter === "ready" 
                 ? "bg-green-600 text-white" 
                 : "bg-white text-gray-700 hover:bg-gray-100"
@@ -348,7 +348,7 @@ export default function OrdersPage() {
           </button>
           <button
             onClick={() => setStatusFilter("completed")}
-            className={`px-4 py-2 rounded-lg font-medium transition ${
+            className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition ${
               statusFilter === "completed" 
                 ? "bg-gray-600 text-white" 
                 : "bg-white text-gray-700 hover:bg-gray-100"
@@ -359,21 +359,21 @@ export default function OrdersPage() {
         </div>
 
         {/* Orders Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
           {filteredOrders.map((order) => (
             <div
               key={order.id}
               onClick={() => setSelectedOrder(order)}
-              className="bg-white rounded-lg shadow hover:shadow-lg transition cursor-pointer p-6 border-2 border-transparent hover:border-green-500"
+              className="bg-white rounded-lg shadow hover:shadow-lg transition cursor-pointer p-4 sm:p-6 border-2 border-transparent hover:border-green-500"
             >
               <div className="flex items-center justify-between mb-3">
-                <span className="text-lg font-bold text-gray-900">#{order.orderNumber}</span>
+                <span className="text-base sm:text-lg font-bold text-gray-900">#{order.orderNumber}</span>
                 <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getStatusColor(order.status)}`}>
                   {getStatusLabel(order.status)}
                 </span>
               </div>
               
-              <div className="space-y-2 text-sm">
+              <div className="space-y-2 text-xs sm:text-sm">
                 <div className="flex items-center gap-2 text-gray-600">
                   <span>🏷️</span>
                   <span className="font-mono text-xs">{order.barcodeNumber}</span>
@@ -396,7 +396,7 @@ export default function OrdersPage() {
                 </div>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-gray-100">
+              <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-100">
                 <div className="text-xs text-gray-500">
                   Created: {new Date(order.createdAt).toLocaleDateString()} {new Date(order.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                 </div>
@@ -407,7 +407,7 @@ export default function OrdersPage() {
 
         {filteredOrders.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No orders found</p>
+            <p className="text-gray-500 text-base sm:text-lg">No orders found</p>
           </div>
         )}
       </div>
@@ -416,8 +416,8 @@ export default function OrdersPage() {
       {selectedOrder && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-900">Order #{selectedOrder.orderNumber}</h2>
+            <div className="sticky top-0 bg-white border-b border-gray-200 px-4 sm:px-6 py-4 flex items-center justify-between">
+              <h2 className="text-lg sm:text-2xl font-bold text-gray-900">Order #{selectedOrder.orderNumber}</h2>
               <button
                 onClick={() => setSelectedOrder(null)}
                 className="text-gray-400 hover:text-gray-600 text-2xl"
@@ -426,28 +426,28 @@ export default function OrdersPage() {
               </button>
             </div>
 
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               {/* Order Info */}
-              <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="col-span-2">
-                    <span className="text-sm text-gray-600">Barcode Number</span>
-                    <p className="font-mono font-bold text-lg text-gray-900">{selectedOrder.barcodeNumber}</p>
+              <div className="bg-gray-50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  <div className="sm:col-span-2">
+                    <span className="text-xs sm:text-sm text-gray-600">Barcode Number</span>
+                    <p className="font-mono font-bold text-base sm:text-lg text-gray-900">{selectedOrder.barcodeNumber}</p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-600">Pickup Date</span>
-                    <p className="font-semibold text-gray-900">{selectedOrder.pickupDate}</p>
+                    <span className="text-xs sm:text-sm text-gray-600">Pickup Date</span>
+                    <p className="font-semibold text-sm sm:text-base text-gray-900">{selectedOrder.pickupDate}</p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-600">Pickup Time</span>
-                    <p className="font-semibold text-gray-900">{selectedOrder.pickupTime}</p>
+                    <span className="text-xs sm:text-sm text-gray-600">Pickup Time</span>
+                    <p className="font-semibold text-sm sm:text-base text-gray-900">{selectedOrder.pickupTime}</p>
                   </div>
-                  <div className="col-span-2">
-                    <span className="text-sm text-gray-600">Location</span>
-                    <p className="font-semibold text-gray-900">{selectedOrder.location}</p>
+                  <div className="sm:col-span-2">
+                    <span className="text-xs sm:text-sm text-gray-600">Location</span>
+                    <p className="font-semibold text-sm sm:text-base text-gray-900">{selectedOrder.location}</p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-600">Status</span>
+                    <span className="text-xs sm:text-sm text-gray-600">Status</span>
                     <p className="mt-1">
                       <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getStatusColor(selectedOrder.status)}`}>
                         {getStatusLabel(selectedOrder.status)}
@@ -455,55 +455,55 @@ export default function OrdersPage() {
                     </p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-600">Total Items</span>
-                    <p className="font-semibold text-gray-900">{selectedOrder.itemCount}</p>
+                    <span className="text-xs sm:text-sm text-gray-600">Total Items</span>
+                    <p className="font-semibold text-sm sm:text-base text-gray-900">{selectedOrder.itemCount}</p>
                   </div>
                 </div>
               </div>
 
               {/* Order Items */}
-              <h3 className="text-lg font-semibold mb-4">Order Items</h3>
-              <div className="space-y-3">
+              <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Order Items</h3>
+              <div className="space-y-2 sm:space-y-3">
                 {selectedOrder.items.map((item) => (
-                  <div key={item.id} className="flex items-center gap-4 bg-white border border-gray-200 rounded-lg p-4 hover:border-green-300 transition">
+                  <div key={item.id} className="flex items-center gap-3 sm:gap-4 bg-white border border-gray-200 rounded-lg p-3 sm:p-4 hover:border-green-300 transition">
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-16 h-16 object-contain rounded"
+                      className="w-12 h-12 sm:w-16 sm:h-16 object-contain rounded"
                     />
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-gray-900">{item.name}</h4>
-                      <p className="text-sm text-gray-600">
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-sm sm:text-base text-gray-900 truncate">{item.name}</h4>
+                      <p className="text-xs sm:text-sm text-gray-600">
                         {item.points} pts × {item.quantity} = {item.points * item.quantity} pts
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-lg font-bold text-green-600">×{item.quantity}</span>
+                      <span className="text-base sm:text-lg font-bold text-green-600">×{item.quantity}</span>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Total */}
-              <div className="mt-6 pt-4 border-t border-gray-200">
+              <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-gray-200">
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-semibold">Total Points</span>
-                  <span className="text-2xl font-bold text-green-600">
+                  <span className="text-base sm:text-lg font-semibold">Total Points</span>
+                  <span className="text-xl sm:text-2xl font-bold text-green-600">
                     {selectedOrder.items.reduce((sum, item) => sum + (item.points * item.quantity), 0)} pts
                   </span>
                 </div>
               </div>
 
               {/* Actions */}
-              <div className="mt-6 flex gap-3">
+              <div className="mt-4 sm:mt-6 flex gap-2 sm:gap-3">
                 <button
                   onClick={() => setSelectedOrder(null)}
-                  className="flex-1 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-medium"
+                  className="flex-1 px-3 sm:px-4 py-2 text-sm sm:text-base bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-medium"
                 >
                   Close
                 </button>
                 <button
-                  className="flex-1 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
+                  className="flex-1 px-3 sm:px-4 py-2 text-sm sm:text-base bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium"
                 >
                   Update Status
                 </button>

@@ -26,11 +26,6 @@ export default function ShopPage() {
         setFilteredProducts(filtered);
     };
 
-    const handleRatingChange = (rating) => {
-        const filtered = products.filter(p => p.rating >= rating);
-        setFilteredProducts(filtered);
-    };
-
     const handleAddToCart = (product) => {
         console.log('Added to cart:', product);
         // Add your cart logic here
@@ -50,50 +45,10 @@ export default function ShopPage() {
     }, [filteredProducts, sortBy]);
 
     return (
-        <div className="min-h-screen bg-white pb-10 border-t border-gray-200 px-20">
-            {/*<div className="mx-auto" style={{ paddingLeft: '118px', paddingRight: '118px', marginTop: '20px' }}>
-                <div className="flex flex-col lg:flex-row gap-8">
-                    <div className="w-full lg:w-72">
-                        <FilterSidebar
-                            categories={categories}
-                            onCategoryChange={handleCategoryChange}
-                            onPriceChange={handlePriceChange}
-                            onRatingChange={handleRatingChange}
-                        />
-                    </div>
-                    <div className="flex-1">
-                        <div className="flex items-center justify-between mb-6">
-                            <div className="flex items-center gap-2">
-                                <span className="text-sm text-gray-600">Sort by:</span>
-                                <select
-                                    value={sortBy}
-                                    onChange={(e) => setSortBy(e.target.value)}
-                                    className="border border-gray-300 rounded px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-                                >
-                                    <option value="latest">Latest</option>
-                                    <option value="price-low">Points: Low to High</option>
-                                    <option value="price-high">Points: High to Low</option>
-                                </select>
-                            </div>
-                            <div className="text-sm font-medium">
-                                <span className="text-green-600 font-bold">{filteredProducts.length}</span> Results Found
-                            </div>
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                            {filteredProducts.map((product) => (
-                                <ProductCard
-                                    key={product.id}
-                                    product={product}
-                                    onAddToCart={handleAddToCart}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </div>*/}
+        <div className="min-h-screen bg-white pb-10 border-t border-gray-200 px-4 sm:px-6 md:px-10 lg:px-20">
             {/* Grid 3 and 9 */}
-            <div className="grid grid-cols-12 gap-8 mt-6">
-                <div className="col-span-2 rounded">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 mt-4 sm:mt-6">
+                <div className="lg:col-span-2 rounded">
                     <FilterSidebar
                         categories={categories}
                         onCategoryChange={handleCategoryChange}
@@ -102,8 +57,8 @@ export default function ShopPage() {
                         setSortBy={setSortBy}
                     />
                 </div>
-                <div className="col-span-10 p-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <div className="lg:col-span-10 p-2 sm:p-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
                         {sortedProducts.map((product) => (
                             <ProductCard
                                 key={product.id}

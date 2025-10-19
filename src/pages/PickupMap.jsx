@@ -50,14 +50,14 @@ export default function PickupMap() {
   ];
 
   return (
-    <div className="w-full max-w-3xl mx-auto bg-white rounded-xl shadow p-6 mt-8">
-      <h2 className="text-xl font-bold mb-4">Pickup Locations</h2>
-      <div className="mb-4 text-gray-600">Select a location to pick up your order.</div>
-      <div className="mb-4">
-        <label htmlFor="location-select" className="block text-sm font-medium text-gray-700 mb-2">Choose a location:</label>
+    <div className="w-full max-w-3xl mx-auto bg-white rounded-xl shadow p-4 sm:p-6 mt-4 sm:mt-8">
+      <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Pickup Locations</h2>
+      <div className="mb-3 sm:mb-4 text-sm sm:text-base text-gray-600">Select a location to pick up your order.</div>
+      <div className="mb-3 sm:mb-4">
+        <label htmlFor="location-select" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Choose a location:</label>
         <select
           id="location-select"
-          className="border rounded px-3 py-2 w-full"
+          className="border rounded px-3 py-2 w-full text-sm sm:text-base"
           value={selectedIdx}
           onChange={e => setSelectedIdx(Number(e.target.value))}
         >
@@ -66,11 +66,11 @@ export default function PickupMap() {
           ))}
         </select>
       </div>
-      <div className="mb-4">
-        <label htmlFor="date-select" className="block text-sm font-medium text-gray-700 mb-2">Pick a date:</label>
+      <div className="mb-3 sm:mb-4">
+        <label htmlFor="date-select" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Pick a date:</label>
         <select
           id="date-select"
-          className="border rounded px-3 py-2 w-full"
+          className="border rounded px-3 py-2 w-full text-sm sm:text-base"
           value={selectedDate}
           onChange={e => setSelectedDate(e.target.value)}
         >
@@ -87,11 +87,11 @@ export default function PickupMap() {
         </select>
       </div>
       {selectedDate && (
-        <div className="mb-4">
-          <label htmlFor="time-select" className="block text-sm font-medium text-gray-700 mb-2">Pick a time:</label>
+        <div className="mb-3 sm:mb-4">
+          <label htmlFor="time-select" className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Pick a time:</label>
           <select
             id="time-select"
-            className="border rounded px-3 py-2 w-full"
+            className="border rounded px-3 py-2 w-full text-sm sm:text-base"
             value={selectedTime}
             onChange={e => setSelectedTime(e.target.value)}
           >
@@ -107,7 +107,7 @@ export default function PickupMap() {
             })}
           </select>
             <button
-              className="mt-6 w-full px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-300"
+              className="mt-4 sm:mt-6 w-full px-4 sm:px-6 py-2 text-sm sm:text-base bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-300 transition"
               disabled={!selectedDate || !selectedTime}
               onClick={() => {
                 navigate("/barcode", {
@@ -123,7 +123,7 @@ export default function PickupMap() {
             </button>
         </div>
       )}
-      <div className="w-full h-96 rounded overflow-hidden border">
+      <div className="w-full h-64 sm:h-80 md:h-96 rounded overflow-hidden border">
         <MapContainer center={center} zoom={13} style={{ width: "100%", height: "100%" }}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -39,17 +39,17 @@ export default function LoginPage({ onLogin }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-blue-50">
-      <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
-        <div className="flex flex-col items-center mb-6">
-          <img src={logo} alt="Pickwell Logo" className="h-16 w-16 mb-3" />
-          <h1 className="text-2xl font-bold text-gray-800">Pickwell</h1>
-          <p className="text-gray-600 text-sm mt-2">Sign in to continue</p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-blue-50 px-4 py-8">
+      <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 w-full max-w-md">
+        <div className="flex flex-col items-center mb-4 sm:mb-6">
+          <img src={logo} alt="Pickwell Logo" className="h-12 w-12 sm:h-16 sm:w-16 mb-2 sm:mb-3" />
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-800">Pickwell</h1>
+          <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">Sign in to continue</p>
         </div>
         
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-3 sm:space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
               Email
             </label>
             <input
@@ -57,14 +57,14 @@ export default function LoginPage({ onLogin }) {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="your@email.com"
               required
             />
           </div>
           
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="password" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
               Password
             </label>
             <input
@@ -72,7 +72,7 @@ export default function LoginPage({ onLogin }) {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="••••••••"
               required
             />
@@ -80,38 +80,38 @@ export default function LoginPage({ onLogin }) {
           
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition font-medium"
+            className="w-full bg-green-600 text-white py-2.5 sm:py-2 px-4 rounded-lg hover:bg-green-700 transition font-medium text-sm sm:text-base"
           >
             Login
           </button>
         </form>
         
         {/* Demo Accounts Info Box */}
-        <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <h3 className="text-sm font-semibold text-blue-900 mb-3">Test Accounts (Click to fill)</h3>
-          <div className="space-y-3 text-xs">
+        <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <h3 className="text-xs sm:text-sm font-semibold text-blue-900 mb-2 sm:mb-3">Test Accounts (Click to fill)</h3>
+          <div className="space-y-2 sm:space-y-3 text-xs">
             <div 
               onClick={fillDemoCredentials}
-              className="bg-white p-3 rounded border border-blue-100 cursor-pointer hover:border-blue-300 hover:shadow-md transition-all"
+              className="bg-white p-2.5 sm:p-3 rounded border border-blue-100 cursor-pointer hover:border-blue-300 hover:shadow-md transition-all active:scale-95"
             >
-              <p className="font-semibold text-blue-800 mb-1">👤 Demo Account</p>
-              <p className="text-gray-600"><span className="font-medium">Email:</span> demo@demo.com</p>
-              <p className="text-gray-600"><span className="font-medium">Password:</span> demo</p>
-              <p className="text-xs text-gray-500 mt-1 italic">Access to shop and order items</p>
+              <p className="font-semibold text-blue-800 mb-1 text-xs sm:text-sm">👤 Demo Account</p>
+              <p className="text-gray-600 text-xs"><span className="font-medium">Email:</span> demo@demo.com</p>
+              <p className="text-gray-600 text-xs"><span className="font-medium">Password:</span> demo</p>
+              <p className="text-[10px] sm:text-xs text-gray-500 mt-1 italic">Access to shop and order items</p>
             </div>
             <div 
               onClick={fillAdminCredentials}
-              className="bg-white p-3 rounded border border-blue-100 cursor-pointer hover:border-blue-300 hover:shadow-md transition-all"
+              className="bg-white p-2.5 sm:p-3 rounded border border-blue-100 cursor-pointer hover:border-blue-300 hover:shadow-md transition-all active:scale-95"
             >
-              <p className="font-semibold text-blue-800 mb-1">👨‍💼 Admin Account</p>
-              <p className="text-gray-600"><span className="font-medium">Email:</span> admin@admin.com</p>
-              <p className="text-gray-600"><span className="font-medium">Password:</span> admin</p>
-              <p className="text-xs text-gray-500 mt-1 italic">Access to orders dashboard</p>
+              <p className="font-semibold text-blue-800 mb-1 text-xs sm:text-sm">👨‍💼 Admin Account</p>
+              <p className="text-gray-600 text-xs"><span className="font-medium">Email:</span> admin@admin.com</p>
+              <p className="text-gray-600 text-xs"><span className="font-medium">Password:</span> admin</p>
+              <p className="text-[10px] sm:text-xs text-gray-500 mt-1 italic">Access to orders dashboard</p>
             </div>
           </div>
         </div>
         
-        <div className="mt-6 text-center text-sm text-gray-600">
+        <div className="mt-4 sm:mt-6 text-center text-xs sm:text-sm text-gray-600">
           <p>Don't have an account? <a href="/signup" className="text-green-600 hover:underline">Sign up</a></p>
         </div>
       </div>

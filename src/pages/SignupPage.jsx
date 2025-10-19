@@ -70,16 +70,16 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-blue-50 py-8">
-      <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-2xl">
-        <div className="flex flex-col items-center mb-6">
-          <img src={logo} alt="Pickwell Logo" className="h-16 w-16 mb-3" />
-          <h1 className="text-2xl font-bold text-gray-800">Create Account</h1>
-          <p className="text-gray-600 text-sm mt-2">Step {step} of 3</p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-blue-50 py-8 px-4">
+      <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 w-full max-w-2xl">
+        <div className="flex flex-col items-center mb-4 sm:mb-6">
+          <img src={logo} alt="Pickwell Logo" className="h-12 w-12 sm:h-16 sm:w-16 mb-2 sm:mb-3" />
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-800">Create Account</h1>
+          <p className="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2">Step {step} of 3</p>
         </div>
 
         {/* Progress Bar */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <div className="flex justify-between mb-2">
             <span className={`text-xs ${step >= 1 ? 'text-green-600 font-semibold' : 'text-gray-400'}`}>Personal Info</span>
             <span className={`text-xs ${step >= 2 ? 'text-green-600 font-semibold' : 'text-gray-400'}`}>Family Members</span>
@@ -95,41 +95,41 @@ export default function SignupPage() {
 
         {/* Step 1: Personal Information */}
         {step === 1 && (
-          <div className="space-y-4">
-            <h2 className="text-lg font-semibold mb-4">Personal Information</h2>
-            <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Personal Information</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">First Name *</label>
                 <input
                   type="text"
                   name="firstName"
                   value={personalInfo.firstName}
                   onChange={handlePersonalInfoChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Last Name *</label>
                 <input
                   type="text"
                   name="lastName"
                   value={personalInfo.lastName}
                   onChange={handlePersonalInfoChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   required
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Gender *</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Gender *</label>
                 <select
                   name="gender"
                   value={personalInfo.gender}
                   onChange={handlePersonalInfoChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   required
                 >
                   <option value="">Select</option>
@@ -140,61 +140,61 @@ export default function SignupPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Date of Birth *</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Date of Birth *</label>
                 <input
                   type="date"
                   name="dateOfBirth"
                   value={personalInfo.dateOfBirth}
                   onChange={handlePersonalInfoChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   required
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Email Address *</label>
               <input
                 type="email"
                 name="email"
                 value={personalInfo.email}
                 onChange={handlePersonalInfoChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Street Address *</label>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Street Address *</label>
               <input
                 type="text"
                 name="streetAddress"
                 value={personalInfo.streetAddress}
                 onChange={handlePersonalInfoChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 required
               />
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">City *</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">City *</label>
                 <input
                   type="text"
                   name="city"
                   value={personalInfo.city}
                   onChange={handlePersonalInfoChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Province *</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Province *</label>
                 <select
                   name="province"
                   value={personalInfo.province}
                   onChange={handlePersonalInfoChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   required
                 >
                   <option value="">Select</option>
@@ -211,24 +211,24 @@ export default function SignupPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Postal Code *</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Postal Code *</label>
                 <input
                   type="text"
                   name="postalCode"
                   value={personalInfo.postalCode}
                   onChange={handlePersonalInfoChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   placeholder="A1A 1A1"
                   required
                 />
               </div>
             </div>
 
-            <div className="flex justify-end mt-6">
+            <div className="flex justify-end mt-4 sm:mt-6">
               <button
                 type="button"
                 onClick={handleNextStep}
-                className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                className="px-4 sm:px-6 py-2 text-sm sm:text-base bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
               >
                 Next
               </button>
@@ -238,16 +238,16 @@ export default function SignupPage() {
 
         {/* Step 2: Family Members */}
         {step === 2 && (
-          <div className="space-y-4">
-            <h2 className="text-lg font-semibold mb-4">Family Members (Optional)</h2>
+          <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Family Members (Optional)</h2>
             
             {/* Display added family members */}
             {familyMembers.length > 0 && (
-              <div className="mb-4 space-y-2">
-                <h3 className="text-sm font-medium text-gray-700">Added Members:</h3>
+              <div className="mb-3 sm:mb-4 space-y-2">
+                <h3 className="text-xs sm:text-sm font-medium text-gray-700">Added Members:</h3>
                 {familyMembers.map((member, index) => (
-                  <div key={index} className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
-                    <div className="text-sm">
+                  <div key={index} className="flex items-center justify-between bg-gray-50 p-2 sm:p-3 rounded-lg">
+                    <div className="text-xs sm:text-sm">
                       <span className="font-medium">{member.firstName} {member.lastName}</span>
                       <span className="text-gray-600 ml-2">({member.relation})</span>
                     </div>
@@ -264,34 +264,34 @@ export default function SignupPage() {
             )}
 
             {/* Add new family member */}
-            <div className="border border-dashed border-gray-300 rounded-lg p-4">
-              <h3 className="text-sm font-medium text-gray-700 mb-3">Add Family Member</h3>
-              <div className="grid grid-cols-2 gap-4 mb-3">
+            <div className="border border-dashed border-gray-300 rounded-lg p-3 sm:p-4">
+              <h3 className="text-xs sm:text-sm font-medium text-gray-700 mb-2 sm:mb-3">Add Family Member</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-3">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">First Name</label>
                   <input
                     type="text"
                     value={currentMember.firstName}
                     onChange={(e) => setCurrentMember({ ...currentMember, firstName: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                  <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Last Name</label>
                   <input
                     type="text"
                     value={currentMember.lastName}
                     onChange={(e) => setCurrentMember({ ...currentMember, lastName: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   />
                 </div>
               </div>
               <div className="mb-3">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Relation</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Relation</label>
                 <select
                   value={currentMember.relation}
                   onChange={(e) => setCurrentMember({ ...currentMember, relation: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full px-3 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
                   <option value="">Select</option>
                   <option value="spouse">Spouse</option>
@@ -305,24 +305,24 @@ export default function SignupPage() {
               <button
                 type="button"
                 onClick={handleAddFamilyMember}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm"
+                className="px-3 sm:px-4 py-2 text-xs sm:text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
               >
                 + Add Member
               </button>
             </div>
 
-            <div className="flex justify-between mt-6">
+            <div className="flex justify-between mt-4 sm:mt-6">
               <button
                 type="button"
                 onClick={handlePreviousStep}
-                className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
+                className="px-4 sm:px-6 py-2 text-sm sm:text-base bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
               >
                 Back
               </button>
               <button
                 type="button"
                 onClick={handleNextStep}
-                className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+                className="px-4 sm:px-6 py-2 text-sm sm:text-base bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
               >
                 Next
               </button>
@@ -332,12 +332,12 @@ export default function SignupPage() {
 
         {/* Step 3: Documents */}
         {step === 3 && (
-          <div className="space-y-4">
-            <h2 className="text-lg font-semibold mb-4">Upload Documents</h2>
+          <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Upload Documents</h2>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">ID Document *</label>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">ID Document *</label>
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6 text-center">
                 <input
                   type="file"
                   name="idFile"
@@ -347,7 +347,7 @@ export default function SignupPage() {
                   accept=".pdf,.jpg,.jpeg,.png"
                 />
                 <label htmlFor="idFile" className="cursor-pointer">
-                  <div className="text-gray-600">
+                  <div className="text-gray-600 text-sm sm:text-base">
                     {documents.idFile ? (
                       <div>
                         <span className="text-green-600 font-medium">✓ {documents.idFile.name}</span>
@@ -355,7 +355,7 @@ export default function SignupPage() {
                       </div>
                     ) : (
                       <div>
-                        <span className="text-4xl">📄</span>
+                        <span className="text-3xl sm:text-4xl">📄</span>
                         <p className="mt-2">Click to upload ID</p>
                         <p className="text-xs text-gray-500 mt-1">PDF, JPG, or PNG</p>
                       </div>
@@ -366,8 +366,8 @@ export default function SignupPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Proof of Income *</label>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Proof of Income *</label>
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6 text-center">
                 <input
                   type="file"
                   name="incomeFile"
@@ -377,7 +377,7 @@ export default function SignupPage() {
                   accept=".pdf,.jpg,.jpeg,.png"
                 />
                 <label htmlFor="incomeFile" className="cursor-pointer">
-                  <div className="text-gray-600">
+                  <div className="text-gray-600 text-sm sm:text-base">
                     {documents.incomeFile ? (
                       <div>
                         <span className="text-green-600 font-medium">✓ {documents.incomeFile.name}</span>
@@ -385,7 +385,7 @@ export default function SignupPage() {
                       </div>
                     ) : (
                       <div>
-                        <span className="text-4xl">📄</span>
+                        <span className="text-3xl sm:text-4xl">📄</span>
                         <p className="mt-2">Click to upload proof of income</p>
                         <p className="text-xs text-gray-500 mt-1">PDF, JPG, or PNG</p>
                       </div>
@@ -395,11 +395,11 @@ export default function SignupPage() {
               </div>
             </div>
 
-            <div className="flex justify-between mt-6">
+            <div className="flex justify-between mt-4 sm:mt-6">
               <button
                 type="button"
                 onClick={handlePreviousStep}
-                className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
+                className="px-4 sm:px-6 py-2 text-sm sm:text-base bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
               >
                 Back
               </button>
@@ -407,7 +407,7 @@ export default function SignupPage() {
                 type="button"
                 onClick={handleSubmit}
                 disabled={!documents.idFile || !documents.incomeFile}
-                className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="px-4 sm:px-6 py-2 text-sm sm:text-base bg-green-600 text-white rounded-lg hover:bg-green-700 transition disabled:bg-gray-300 disabled:cursor-not-allowed"
               >
                 Complete Sign Up
               </button>
@@ -415,7 +415,7 @@ export default function SignupPage() {
           </div>
         )}
 
-        <div className="mt-6 text-center text-sm text-gray-600">
+        <div className="mt-4 sm:mt-6 text-center text-xs sm:text-sm text-gray-600">
           <p>Already have an account? <a href="/login" className="text-green-600 hover:underline">Login</a></p>
         </div>
       </div>
