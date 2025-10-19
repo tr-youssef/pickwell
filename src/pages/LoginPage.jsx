@@ -28,6 +28,16 @@ export default function LoginPage({ onLogin }) {
     alert("Invalid credentials. Please use demo or admin account.");
   };
 
+  const fillDemoCredentials = () => {
+    setEmail("demo@demo.com");
+    setPassword("demo");
+  };
+
+  const fillAdminCredentials = () => {
+    setEmail("admin@admin.com");
+    setPassword("admin");
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-blue-50">
       <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
@@ -78,15 +88,21 @@ export default function LoginPage({ onLogin }) {
         
         {/* Demo Accounts Info Box */}
         <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <h3 className="text-sm font-semibold text-blue-900 mb-3">Test Accounts</h3>
+          <h3 className="text-sm font-semibold text-blue-900 mb-3">Test Accounts (Click to fill)</h3>
           <div className="space-y-3 text-xs">
-            <div className="bg-white p-3 rounded border border-blue-100">
+            <div 
+              onClick={fillDemoCredentials}
+              className="bg-white p-3 rounded border border-blue-100 cursor-pointer hover:border-blue-300 hover:shadow-md transition-all"
+            >
               <p className="font-semibold text-blue-800 mb-1">👤 Demo Account</p>
               <p className="text-gray-600"><span className="font-medium">Email:</span> demo@demo.com</p>
               <p className="text-gray-600"><span className="font-medium">Password:</span> demo</p>
               <p className="text-xs text-gray-500 mt-1 italic">Access to shop and order items</p>
             </div>
-            <div className="bg-white p-3 rounded border border-blue-100">
+            <div 
+              onClick={fillAdminCredentials}
+              className="bg-white p-3 rounded border border-blue-100 cursor-pointer hover:border-blue-300 hover:shadow-md transition-all"
+            >
               <p className="font-semibold text-blue-800 mb-1">👨‍💼 Admin Account</p>
               <p className="text-gray-600"><span className="font-medium">Email:</span> admin@admin.com</p>
               <p className="text-gray-600"><span className="font-medium">Password:</span> admin</p>
