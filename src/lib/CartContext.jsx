@@ -4,7 +4,7 @@ const CartContext = createContext();
 
 export function CartProvider({ children }) {
   // Initial points, can be set to any value or fetched from user profile
-  const [points, setPoints] = useState(150);
+  const [points, setPoints] = useState(100);
   const [cart, setCart] = useState([]);
 
 

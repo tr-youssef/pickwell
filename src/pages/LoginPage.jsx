@@ -9,9 +9,16 @@ export default function LoginPage({ onLogin }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Simple login - just call onLogin to grant access
-    // In a real app, you'd verify credentials here
-    onLogin();
+    
+    // Check for admin credentials
+    if (email === "admin@admin.com" && password === "admin") {
+      onLogin(true); // Pass true to indicate admin
+      navigate("/orders");
+      return;
+    }
+    
+    // Regular user login
+    onLogin(false);
     navigate("/");
   };
 

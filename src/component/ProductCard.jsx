@@ -21,9 +21,9 @@ export default function ProductCard({ product }) {
                     <div>
                         <div className="text-base text-gray-800 font-medium">{product.name}</div>
                         <div className="flex items-center gap-2">
-                            <span className="text-lg font-bold text-green-600">{Number(product.price).toFixed(2)} pts</span>
+                            <span className="text-lg font-bold text-green-600">{parseInt(product.price, 10)} pts</span>
                             {product.originalPrice && (
-                                <span className="text-sm text-gray-400 line-through">{Number(product.originalPrice).toFixed(2)} pts</span>
+                                <span className="text-sm text-gray-400 line-through">{parseInt(product.originalPrice, 10)} pts</span>
                             )}
                         </div>
                     </div>
